@@ -1,0 +1,82 @@
+using System;
+using System.Data;
+using System.Configuration;
+using System.Collections;
+using System.Web;
+using System.Web.Security;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using System.Web.UI.WebControls.WebParts;
+using System.Web.UI.HtmlControls;
+using System.Data.SqlClient;
+
+public partial class Home : System.Web.UI.Page
+{
+    static string sel;
+    static int flag = 0;
+    protected void Page_Load(object sender, EventArgs e)
+    {
+
+    }
+    protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        sel = DropDownList1.SelectedItem.ToString();
+        if(sel.Equals("Student"))
+        {
+            flag = 0;
+            Label9.Visible=true;
+            Label10.Visible=true;
+            Label15.Visible=true;
+            TextBox5.Visible=true ;
+            TextBox6 .Visible =true;
+            HyperLink8 .Visible =true;
+            Button3 .Visible =true;
+        }
+        if (sel.Equals("Teacher"))
+        {
+            flag = 1;
+            Label9.Visible = true;
+            Label10.Visible = true;
+            Label15.Visible = true;
+            TextBox5.Visible = true;
+            TextBox6.Visible = true;
+            Button3.Visible = true;
+            HyperLink8.Visible = false;
+        }
+    }
+    protected void Button3_Click(object sender, EventArgs e)
+    {
+        string q = "Data Source=.\\SQLEXPRESS;AttachDbFilename=|DataDirectory|\\Database.mdf;Integrated Security=True;User Instance=True";
+        SqlConnection con = new SqlConnection(q);
+        con.Open();
+        string s="";
+        int s1=1;
+        if (flag==0)//(sel.Equals("Student"))
+        {
+            s = "select * from student where regno = '" + TextBox5.Text.ToString() + "' and pass = '" + TextBox6.Text.ToString()+"'";
+            s1=0;       
+        }
+        if (flag ==1)// (sel.Equals("Teacher"))
+        {
+            s = "select * from teacher where tid = '" + TextBox5.Text.ToString() + "' and pass = '" + TextBox6.Text.ToString() + "'";
+        }
+         SqlCommand cmd = new SqlCommand(s, con);
+         SqlDataReader dr = cmd.ExecuteReader();
+         while (dr.Read())
+         {
+             if (s1 == 1)
+             {
+                 Session.Add("tid", TextBox5.Text.ToString());
+                 Response.Redirect("teacherlogin.aspx");
+             }
+             if (s1 == 0)
+             {
+                 Session.Add("regno", TextBox5.Text.ToString());
+                 Response.Redirect("feedbackform.aspx");
+             }
+         }
+         dr.Close();
+         con.Close();
+
+    }
+}

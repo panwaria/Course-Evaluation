@@ -1,0 +1,52 @@
+<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Adminlogin.aspx.cs" Inherits="Adminlogin" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head id="Head1" runat="server">
+    <title>Untitled Page</title>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+        <asp:Panel ID="Panel1" runat="server" Height="609px" Style="background-image: url(web2.bmp)"
+            Width="920px">
+            <table style="width: 919px; height: 573px">
+                <tr>
+                    <td style="width: 141px; height: 19px">
+                    </td>
+                    <td style="height: 19px">
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 141px; height: 98px">
+                    </td>
+                    <td style="height: 98px">
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                        &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;
+                        <asp:Label ID="Label2" runat="server" Text="Username:"></asp:Label>
+                        &nbsp;<asp:TextBox ID="TextBox1" runat="server" Width="162px"></asp:TextBox><br />
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                        &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;
+                        <asp:Label ID="Label1" runat="server" Text="Password:"></asp:Label>
+                        &nbsp;
+                        <asp:TextBox ID="TextBox2" runat="server" TextMode="Password" Width="159px"></asp:TextBox><br />
+                        &nbsp;<br />
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                        &nbsp;
+                        <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Login" />
+                        <asp:Label ID="Label3" runat="server"></asp:Label><br />
+                        <br />
+                    </td>
+                </tr>
+            </table>
+        </asp:Panel>
+    
+    </div>
+    </form>
+</body>
+</html>
